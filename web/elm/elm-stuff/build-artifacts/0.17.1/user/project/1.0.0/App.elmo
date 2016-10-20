@@ -1,0 +1,45 @@
+var _user$project$App$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$none;
+};
+var _user$project$App$model = {articleListModel: _user$project$Components_ArticleList$Model};
+var _user$project$App$initialModel = {articleListModel: _user$project$Components_ArticleList$initialModel};
+var _user$project$App$init = {ctor: '_Tuple2', _0: _user$project$App$initialModel, _1: _elm_lang$core$Platform_Cmd$none};
+var _user$project$App$Model = function (a) {
+	return {articleListModel: a};
+};
+var _user$project$App$ArticleListMsg = function (a) {
+	return {ctor: 'ArticleListMsg', _0: a};
+};
+var _user$project$App$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		var _p1 = A2(_user$project$Components_ArticleList$update, _p0._0, model.articleListModel);
+		var updatedModel = _p1._0;
+		var cmd = _p1._1;
+		return {
+			ctor: '_Tuple2',
+			_0: _elm_lang$core$Native_Utils.update(
+				model,
+				{articleListModel: updatedModel}),
+			_1: A2(_elm_lang$core$Platform_Cmd$map, _user$project$App$ArticleListMsg, cmd)
+		};
+	});
+var _user$project$App$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html_Attributes$class('elm-app')
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_elm_lang$html$Html_App$map,
+				_user$project$App$ArticleListMsg,
+				_user$project$Components_ArticleList$view(model.articleListModel))
+			]));
+};
+var _user$project$App$main = {
+	main: _elm_lang$html$Html_App$program(
+		{init: _user$project$App$init, view: _user$project$App$view, update: _user$project$App$update, subscriptions: _user$project$App$subscriptions})
+};
